@@ -1,3 +1,5 @@
+
+import psycopg2
 class DBManager:
 
 
@@ -7,12 +9,12 @@ class DBManager:
         self.db_user = db_user
         self.db_password = db_password
         self.db_host = db_host
-        self.db_port = db_port)
+        self.db_port = db_port
         self.connection = psycopg2.connect(db_name = 'postgres',
-                                            user = self.db_user,
-                                            password = self.db_password,
-                                            host = self.db_host,
-                                            port = self.db_port)
+                                            db_user = self.db_user,
+                                            db_password = self.db_password,
+                                            db_host = self.db_host,
+                                            db_port = self.db_port)
 
 
     def create_database(self, db_name):
@@ -26,8 +28,12 @@ class DBManager:
 
 
         self.cursor = self.connection.cursor()
-        self.cursor.execute('CREATE TABLE employee ...;')
-        self.cursor.execute('CREATE TABLE vacancies ...;')
+        self.cursor.execute('CREATE TABLE employee(hh_id int PRIMARY KEY,
+                                                   name varchar(20),
+                                                   description text,
+                                                   url_company varchar(30),
+                                                   area varchar(20)')
+        #self.cursor.execute('CREATE TABLE vacancies ...;')
         self.cursor.commit()
 
 

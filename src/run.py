@@ -25,7 +25,7 @@ def get_vacancy(company_id):
     response = requests.get(url, headers=headers)
     response = response.json()
     for vacancy in response.get('items'):
-        vacancies.append({'hh.id':vacancy.get('id'),
+        vacancies.append({'hh_id':vacancy.get('id'),
         'name': vacancy.get('name'),
         'salary_from': vacancy.get('salary')['from']if vacancy.get('salary') else None,
         'salary_to': vacancy.get('salary')['to']if vacancy.get('salary') else None,
