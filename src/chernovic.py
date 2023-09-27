@@ -1,14 +1,17 @@
-import requests
 
-url = "https://api.hh.ru/vacancies/"
-params = {"text":"python", "page": 1, "per_page":50,"search_field": 'name'}
-request = requests.get(url, params = params)
-request = request.json()
-data = {}
-i=0
-#for request_ in request:
-#print(data)
-print(request)
+import psycopg2
+conn.close()
+breake
 
-das = {'gas':'daf', 'has':{'jas':'kas', 'las':'pas'}}
-print (das['has']['las'])
+conn = psycopg2.connect(dbname='postgres',
+                              user='postgres',
+                              password='1705',
+                              host='127.0.0.1',
+                              port='5432')
+conn.autocommit = True
+cursor = conn.cursor()
+sql = '''CREATE DATABASE hh''';
+name = 'h'
+cursor.execute('''DROP DATABASE IF EXISTS hh''');
+cursor.execute(f'''CREATE DATABASE {name};''');
+conn.close()

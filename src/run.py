@@ -28,7 +28,7 @@ def get_vacancy(company_id):
         vacancies.append({'hh_id':vacancy.get('id'),
         'name': vacancy.get('name'),
         'salary_from': vacancy.get('salary')['from']if vacancy.get('salary') else None,
-        'salary_to': vacancy.get('salary')['to']if vacancy.get('salary') else None,
+        'salary_to': vacancy.get('salary')['to']if vacancy.get('salary')  else None,
         'salary_to': vacancy.get('salary')['currency']if vacancy.get('salary') else None,
         'requirements': vacancy.get('snippet')['requirement']
         }
